@@ -11,7 +11,7 @@ function App() {
                 <div className="h-64 flex w-10"></div>
             </div>
             <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-slate-700 scrollbar-track-slate-300 h-32 overflow-y-scroll">
-                <div className="h-64 bg-slate-400"></div>
+                <div className="h-64 w-10 "></div>
             </div>
         </main>
     )
