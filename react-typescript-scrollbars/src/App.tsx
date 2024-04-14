@@ -7,11 +7,11 @@ function App() {
             <div className="scrollbar scrollbar-thumb-sky-700 scrollbar-track-emerald-300 h-32 overflow-y-scroll">
                 <div className="h-64 flex w-10"></div>
             </div>
-            <div className="scrollbar scrollbar-thumb-emerald-600 scrollbar-track-emerald-300 h-32 overflow-y-scroll">
-                <div className="h-64 flex w-10"></div>
-            </div>
             <div className="scrollbar scrollbar-thumb-emerald-600 scrollbar-track-emerald-300 h-32 scrollbar-thumb-rounded-full overflow-y-scroll">
                 <div className="h-64 flex w-10"></div>
+            </div>
+            <div className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-thumb-slate-700 scrollbar-track-slate-300 h-32 overflow-y-scroll">
+                <div className="h-64 bg-slate-400"></div>
             </div>
         </main>
     )
