@@ -1,6 +1,7 @@
 import React from "react"
 import { CKEditor, useMultiRootEditor } from "@ckeditor/ckeditor5-react"
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import Editor from "ckeditor5-custom-build"
 
 import { MultiRootEditor } from "@ckeditor/ckeditor5-editor-multi-root"
 
@@ -70,7 +71,8 @@ const Ck = () => {
         <div>
             <div>Ck</div>
             <CKEditor
-                editor={ClassicEditor}
+                // @ts-expect-error
+                editor={Editor}
                 data="<p>Hello from CKEditor&nbsp;5!</p>"
                 onReady={(editor) => {
                     // You can store the "editor" and use when it is needed.
