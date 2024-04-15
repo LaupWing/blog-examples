@@ -13,16 +13,62 @@ const multiRootEditorData = {
         '<a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>',
 }
 
+const rootsAttributes = {
+    intro: {
+        order: 10,
+    },
+    content: {
+        order: 20,
+    },
+    outro: {
+        order: 30,
+    },
+}
+
 const Ck = () => {
     const editorConfig = {
         editor: MultiRootEditor,
-
+        data: multiRootEditorData,
+        rootsAttributes,
         onReady: () => {},
+    }
+    const {
+        editor,
+        editableElements,
+        toolbarElement,
+        data,
+        setData,
+        attributes,
+        setAttributes,
+    } = useMultiRootEditor(editorConfig)
+
+    console.log(editor)
+
+    const renderEditor = () => {
+        // Sorted elements based on order attribute.
+        const sortedElements = editableElements.sort(
+            (a, b) =>
+                // @ts-ignore
+                attributes[a.props.id].order - attributes[b.props.id].order
+        )
+        console.log(editableElements)
+        return (
+            <>
+                {toolbarElement}
+
+                <div className="row row-editor">
+                    <div className="roots">{sortedElements}</div>
+
+                    {/* <div ref={sidebarElementRef} className="sidebar"></div> */}
+                </div>
+            </>
+        )
     }
 
     return (
         <div>
             <div>Ck</div>
+            {renderEditor()}
             {/* <CKEditor
                 editor={ClassicEditor}
                 data="<p>Hello from CKEditor&nbsp;5!</p>"
