@@ -28,23 +28,23 @@ const rootsAttributes = {
 }
 
 const Ck = () => {
-    // const editorConfig = {
-    //     editor: MultiRootEditor,
-    //     data: multiRootEditorData,
-    //     rootsAttributes,
-    //     onReady: () => {},
-    // }
-    // const {
-    //     editor,
-    //     editableElements,
-    //     toolbarElement,
-    //     data,
-    //     setData,
-    //     attributes,
-    //     setAttributes,
-    // } = useMultiRootEditor(editorConfig)
+    const editorConfig = {
+        editor: MultiRootEditor,
+        data: multiRootEditorData,
+        rootsAttributes,
+        onReady: () => {},
+    }
+    const {
+        editor,
+        editableElements,
+        toolbarElement,
+        data,
+        setData,
+        attributes,
+        setAttributes,
+    } = useMultiRootEditor(editorConfig)
 
-    // console.log(editor)
+    console.log(editor)
 
     // const renderEditor = () => {
     //     // Sorted elements based on order attribute.
@@ -70,7 +70,8 @@ const Ck = () => {
     return (
         <div>
             <div>Ck</div>
-            <CKEditor
+
+            {/* <CKEditor
                 // @ts-expect-error
                 editor={Editor}
                 data="<p>Hello from CKEditor&nbsp;5!</p>"
@@ -87,7 +88,7 @@ const Ck = () => {
                 onFocus={(event, editor) => {
                     console.log("Focus.", editor)
                 }}
-            />
+            /> */}
         </div>
     )
 }
