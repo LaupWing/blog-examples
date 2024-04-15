@@ -1,6 +1,7 @@
 import React from "react"
-import { useMultiRootEditor } from "@ckeditor/ckeditor5-react"
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import { CKEditor, useMultiRootEditor } from "@ckeditor/ckeditor5-react"
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+
 import { MultiRootEditor } from "@ckeditor/ckeditor5-editor-multi-root"
 
 const multiRootEditorData = {
@@ -26,50 +27,49 @@ const rootsAttributes = {
 }
 
 const Ck = () => {
-    const editorConfig = {
-        editor: MultiRootEditor,
-        data: multiRootEditorData,
-        rootsAttributes,
-        onReady: () => {},
-    }
-    const {
-        editor,
-        editableElements,
-        toolbarElement,
-        data,
-        setData,
-        attributes,
-        setAttributes,
-    } = useMultiRootEditor(editorConfig)
+    // const editorConfig = {
+    //     editor: MultiRootEditor,
+    //     data: multiRootEditorData,
+    //     rootsAttributes,
+    //     onReady: () => {},
+    // }
+    // const {
+    //     editor,
+    //     editableElements,
+    //     toolbarElement,
+    //     data,
+    //     setData,
+    //     attributes,
+    //     setAttributes,
+    // } = useMultiRootEditor(editorConfig)
 
-    console.log(editor)
+    // console.log(editor)
 
-    const renderEditor = () => {
-        // Sorted elements based on order attribute.
-        const sortedElements = editableElements.sort(
-            (a, b) =>
-                // @ts-ignore
-                attributes[a.props.id].order - attributes[b.props.id].order
-        )
-        console.log(editableElements)
-        return (
-            <>
-                {toolbarElement}
+    // const renderEditor = () => {
+    //     // Sorted elements based on order attribute.
+    //     const sortedElements = editableElements.sort(
+    //         (a, b) =>
+    //             // @ts-ignore
+    //             attributes[a.props.id].order - attributes[b.props.id].order
+    //     )
+    //     console.log(editableElements)
+    //     return (
+    //         <>
+    //             {toolbarElement}
 
-                <div className="row row-editor">
-                    <div className="roots">{sortedElements}</div>
+    //             <div className="row row-editor">
+    //                 <div className="roots">{sortedElements}</div>
 
-                    {/* <div ref={sidebarElementRef} className="sidebar"></div> */}
-                </div>
-            </>
-        )
-    }
+    //                 {/* <div ref={sidebarElementRef} className="sidebar"></div> */}
+    //             </div>
+    //         </>
+    //     )
+    // }
 
     return (
         <div>
             <div>Ck</div>
-            {renderEditor()}
-            {/* <CKEditor
+            <CKEditor
                 editor={ClassicEditor}
                 data="<p>Hello from CKEditor&nbsp;5!</p>"
                 onReady={(editor) => {
@@ -85,7 +85,7 @@ const Ck = () => {
                 onFocus={(event, editor) => {
                     console.log("Focus.", editor)
                 }}
-            /> */}
+            />
         </div>
     )
 }
