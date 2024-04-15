@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { CKEditor, useMultiRootEditor } from "@ckeditor/ckeditor5-react"
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import Editor from "ckeditor5-custom-build"
@@ -28,23 +28,24 @@ const rootsAttributes = {
 }
 
 const Ck = () => {
-    const editorConfig = {
-        editor: MultiRootEditor,
-        data: multiRootEditorData,
-        rootsAttributes,
-        onReady: () => {},
-    }
-    const {
-        editor,
-        editableElements,
-        toolbarElement,
-        data,
-        setData,
-        attributes,
-        setAttributes,
-    } = useMultiRootEditor(editorConfig)
-
-    console.log(editor)
+    const editor_ref = useRef(null)
+    // const editorConfig = {
+    //     editor: MultiRootEditor,
+    //     data: multiRootEditorData,
+    //     rootsAttributes,
+    //     onReady: () => {},
+    // }
+    // const {
+    //     editor,
+    //     editableElements,
+    //     toolbarElement,
+    //     data,
+    //     setData,
+    //     attributes,
+    //     setAttributes,
+    // } = useMultiRootEditor(editorConfig)
+    // console.log(MultiRootEditor.cre)
+    // console.log(editor)
 
     // const renderEditor = () => {
     //     // Sorted elements based on order attribute.
@@ -70,7 +71,7 @@ const Ck = () => {
     return (
         <div>
             <div>Ck</div>
-
+            <div ref={editor_ref}></div>
             {/* <CKEditor
                 // @ts-expect-error
                 editor={Editor}
